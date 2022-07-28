@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>1111111111</p>
+    <p>22222</p>
+    <p>33333</p>
+  </body>
+  <script>
+    console.log("start");
+    setTimeout(() => {
+      const list = document.getElementsByTagName("p");
+      console.log("timeout 1", list.length);
+
+      Promise.resolve().then(() => {
+        console.log("setTimeout promise.then1", list.length);
+      });
+      // alert('阻塞');
+    }, 1000);
+
+    Promise.resolve().then(() => {
+      const list = document.getElementsByTagName("p");
+      console.log("promise.then2", list.length);
+      // alert('Promise 阻塞');
+    });
+
+    setTimeout(() => {
+      console.log("second settimeout 4");
+    }, 4);
+    setTimeout(() => {
+      console.log("second settimeout 3");
+    }, 3);
+    setTimeout(() => {
+      console.log("second settimeout 2");
+    }, 2);
+    setTimeout(() => {
+      console.log("second settimeout 1");
+    }, 1);
+    setTimeout(() => {
+      console.log("second settimeout 0");
+    }, 0);
+
+    Promise.resolve().then(() => {
+      const list = document.getElementsByTagName("p");
+      console.log("promise.then3", list.length);
+      // alert('Promise 阻塞');
+    });
+    console.log("end");
+
+    window.onload = () => {
+      console.log("window.onload");
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("DOMContentLoaded");
+    });
+  </script>
+</html>

@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .header {
+        height: 40px;
+        background: lightblue;
+      }
+      .footer {
+        height: 100px;
+        background: lightcoral;
+      }
+
+      .center {
+        width: 100%;
+        height: 500px;
+        background: lightgray;
+      }
+
+      .main {
+        display: flex;
+      }
+      .center {
+        flex-grow: 1;
+      }
+      .left {
+        flex: 0 0 200px;
+        order: -1;
+        height: 500px;
+        background: lightpink;
+      }
+      .right {
+        flex: 0 0 300px;
+        height: 500px;
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">header</div>
+    <div class="main">
+      <div class="center">center</div>
+      <div class="left">left</div>
+      <div class="right">right</div>
+    </div>
+    <div class="footer">footer</div>
+  </body>
+</html>
