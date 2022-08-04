@@ -1,21 +1,21 @@
-function ListNode(val, next) {
-  this.val = val === undefined ? 0 : val;
-  this.next = next === undefined ? null : next;
-}
-
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
 var swapPairs = function (head) {
-  const tree = new ListNode(-1);
-  tree.next = head;
-
-  let previous = tree;
-  let current = previous.next;
+  const node = new ListNode(-1, head);
+  let previous = node;
+  let current = node.next;
 
   while (current && current.next) {
-    next = current.next;
+    const next = current.next;
     current.next = next.next;
     next.next = current;
     previous.next = next;
@@ -24,12 +24,5 @@ var swapPairs = function (head) {
     current = current.next;
   }
 
-  return tree.next;
+  return node.next;
 };
-
-const node = null;
-// node.next = new ListNode(2);
-// node.next.next = new ListNode(3);
-// node.next.next.next = new ListNode(4);
-// node.next.next.next.next = new ListNode(5);
-console.log(swapPairs(node));
