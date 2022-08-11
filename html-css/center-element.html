@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        padding: 50px 0;
+      }
+
+      .item {
+        background: red;
+        width: 100px;
+        height: 100px;
+      }
+
+      .container1 {
+        position: relative;
+      }
+
+      .item1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .item2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      .container2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container3 {
+        display: flex;
+      }
+
+      .item3 {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. 相对 + 绝对定位 -->
+    <div class="container container1">
+      <div class="item item1"></div>
+    </div>
+
+    <!-- 2. 相对 + 绝对定位 -->
+    <div class="container container1">
+      <div class="item item2"></div>
+    </div>
+
+    <!-- 3. flex 方式 -->
+    <div class="container container2">
+      <div class="item"></div>
+    </div>
+
+    <!-- 4. flex 方式 -->
+    <div class="container container3">
+      <div class="item item3"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!-- https://www.ruanyifeng.com/blog/2019/11/css-position.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 100px;
+        width: 100px;
+        background: lightblue;
+        margin: 20px;
+      }
+
+      .box1 {
+        position: fixed;
+        background: red;
+        right: 20px;
+      }
+
+      .box2 {
+        position: relative;
+        top: 30px;
+      }
+
+      .parent {
+        position: relative;
+        top: 100px;
+        left: 300px;
+        height: 300px;
+      }
+
+      .box3 {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        background: green;
+      }
+
+      .sticky-demo {
+        height: 250px;
+        width: 250px;
+        overflow: scroll;
+      }
+      .sticky {
+        position: sticky;
+        top: 0;
+        height: 250px;
+        width: 250px;
+      }
+      .sticky1 {
+        background: lightpink;
+      }
+      .sticky2 {
+        background: lightsalmon;
+      }
+      .sticky3 {
+        background: lightseagreen;
+      }
+      .sticky4 {
+        background: lightskyblue;
+      }
+      .sticky5 {
+        background: lightslategray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="parent">
+      <div class="box box3"></div>
+    </div>
+    <div class="sticky-demo">
+      <div class="sticky sticky1"><h1>sticky1</h1></div>
+      <div class="sticky sticky2"><h1>sticky2</h1></div>
+      <div class="sticky sticky3"><h1>sticky3</h1></div>
+      <div class="sticky sticky4"><h1>sticky4</h1></div>
+      <div class="sticky sticky5"><h1>sticky5</h1></div>
+    </div>
+
+    <script>
+      const elements = document.querySelectorAll(".sticky");
+    </script>
+  </body>
+</html>
