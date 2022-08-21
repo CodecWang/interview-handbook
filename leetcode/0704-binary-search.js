@@ -8,16 +8,11 @@ var search = function (nums, target) {
   let right = nums.length - 1;
 
   while (left <= right) {
-    const mid = parseInt((left + right) / 2);
-    if (nums[mid] === target) {
-      return mid;
-    }
+    const mid = left + parseInt((right - left) / 2);
+    if (nums[mid] === target) return mid;
 
-    if (nums[mid] > target) {
-      right = mid - 1;
-    } else {
-      left = mid + 1;
-    }
+    if (nums[mid] > target) right = mid - 1;
+    else left = mid + 1;
   }
 
   return -1;
