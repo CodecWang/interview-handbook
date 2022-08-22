@@ -47,3 +47,49 @@ class Promise {
     }
   }
 }
+
+Promise.all = (promises) => {
+  if (!Array.isArray(promises)) throw new TypeError("Must pass array");
+
+  let count = 0;
+  let hasError = false;
+  const data = [];
+
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < promises.length; i++) {
+      promises[i].then(
+        (res) => {
+          data[i] = res;
+          count++;
+          if (count === promises.length) resolve(data);
+        },
+        (error) => {
+          if (!hasError) reject(error);
+          hasError = true;
+        }
+      );
+    }
+  });
+};
+
+Promise.race = (promises) => {
+  if (!Array.isArray(promises)) throw new TypeError("Must pass array");
+
+  let hasValue = false;
+  let hasError = false;
+
+  return new Promise((resolve, reject) => {
+    for (const promise of promises) {
+      promise.then(
+        (res) => {
+          if (!hasError && !hasValue) resolve(res);
+          hasValue = true;
+        },
+        (error) => {
+          if (!hasError && !hasValue) reject(error);
+          hasError = true;
+        }
+      );
+    }
+  });
+};
