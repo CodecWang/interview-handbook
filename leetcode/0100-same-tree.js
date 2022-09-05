@@ -7,27 +7,12 @@
  * }
  */
 /**
- * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
  * @return {boolean}
  */
-var isSymmetric = function (root) {
-  // using recursion
-  // const dfs = (node1, node2) => {
-  //   if (!node1 && !node2) return true;
-  //   if (!node1 || !node2) return false;
-
-  //   return (
-  //     node1.val === node2.val &&
-  //     dfs(node1.right, node2.left) &&
-  //     dfs(node1.left, node2.right)
-  //   );
-  // };
-
-  // return dfs(root.left, root.right);
-
-  // using iteration
-  // 确定遍历方式：前序遍历
-  const stack = [root.left, root.right];
+var isSameTree = function (p, q) {
+  const stack = [p, q];
   while (stack.length) {
     const node1 = stack.pop();
     const node2 = stack.pop();
@@ -37,9 +22,10 @@ var isSymmetric = function (root) {
     if (node1.val !== node2.val) return false;
 
     stack.push(node1.left);
-    stack.push(node2.right);
-    stack.push(node1.right);
     stack.push(node2.left);
+    stack.push(node1.right);
+    stack.push(node2.right);
   }
+
   return true;
 };
