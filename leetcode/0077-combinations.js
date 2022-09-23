@@ -4,22 +4,20 @@
  * @return {number[][]}
  */
 var combine = function (n, k) {
-  const path = [];
   const ans = [];
 
-  const backTrack = (layer, startIndex) => {
-    if (layer > k) {
-      ans.push([...path]);
-      return;
+  const backTracking = (paths, start) => {
+    if (paths.length === k) {
+      return ans.push([...paths]);
     }
 
-    for (let i = startIndex; i <= n; i++) {
-      path.push(i);
-      backTrack(layer + 1, i + 1);
-      path.pop();
+    for (let i = start; i <= n; i++) {
+      paths.push(i);
+      backTracking(paths, i + 1);
+      paths.pop(i);
     }
   };
 
-  backTrack(1, 1);
+  backTracking([], 1);
   return ans;
 };

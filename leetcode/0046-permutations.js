@@ -21,26 +21,24 @@ var permute = function (nums) {
   // return dfs(nums);
 
   // 使用回溯算法
-  const path = [];
   const ans = [];
+  const n = nums.length;
+  const visited = new Array(n).fill(false);
 
-  const backTrack = (visited) => {
-    if (path.length === nums.length) {
-      ans.push([...path]);
-      return;
-    }
+  const backTracking = (paths) => {
+    if (paths.length === n) return ans.push([...paths]);
 
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < n; i++) {
       if (visited[i]) continue;
+
+      paths.push(nums[i]);
       visited[i] = true;
-      path.push(nums[i]);
-      backTrack(visited);
-      path.pop();
+      backTracking(paths);
+      paths.pop(nums[i]);
       visited[i] = false;
     }
   };
+  backTracking([]);
 
-  const visited = new Array(nums.length);
-  backTrack(visited);
   return ans;
 };
