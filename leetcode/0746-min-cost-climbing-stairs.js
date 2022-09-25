@@ -3,14 +3,23 @@
  * @return {number}
  */
 var minCostClimbingStairs = function (cost) {
-  let fn2 = 0;
-  let fn1 = 0;
+  // dp[i] 表示 爬到 i 层的最低花费
+  // const dp = [0, 0];
+  // const n = cost.length;
+  // for (let i = 2; i <= n; i++) {
+  //   dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+  // }
+  // return dp[n];
 
-  for (let i = 0; i < cost.length; i++) {
-    const sum = Math.min(fn1, fn2) + cost[i];
-    fn2 = fn1;
-    fn1 = sum;
+  // dynamic programming optimized
+  let p = 0;
+  let q = 0;
+  const n = cost.length;
+  for (let i = 2; i <= n; i++) {
+    const temp = Math.min(q + cost[i - 1], p + cost[i - 2]);
+    p = q;
+    q = temp;
   }
 
-  return Math.min(fn1, fn2);
+  return q;
 };

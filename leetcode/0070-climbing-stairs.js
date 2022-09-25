@@ -3,16 +3,23 @@
  * @return {number}
  */
 var climbStairs = function (n) {
-  // f(n) = f(n - 1) + f(n - 2)
-  let fn1 = 0;
-  let fn2 = 0;
-  let fn = 1;
+  // dp[i] 表示 i 个台阶的方式数
+  // dp[i] = dp[i - 1] + dp[i - 2]
+  // const dp = [1, 1];
+  // for (let i = 2; i <= n; i++) {
+  //   dp[i] = dp[i - 1] + dp[i - 2];
+  // }
+  // return dp[n];
 
-  for (let i = 1; i <= n; i++) {
-    fn2 = fn1;
-    fn1 = fn;
-    fn = fn1 + fn2;
+  // 动态规划优化
+  let p = 1;
+  let q = 1;
+
+  for (let i = 2; i <= n; i++) {
+    const sum = p + q;
+    p = q;
+    q = sum;
   }
 
-  return fn;
+  return q;
 };
