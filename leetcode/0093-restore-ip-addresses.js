@@ -23,7 +23,7 @@ var restoreIpAddresses = function (s) {
       if (!isValid(temp)) break;
       path.push(temp);
       backTracking(path, i + 1);
-      path.pop(temp);
+      path.pop();
     }
   };
 
