@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 页面上所有的标签
+      const tags = [...document.querySelectorAll("*")].map(
+        (node) => node.tagName
+      );
+
+      // 所有标签出现的次数
+      const tagCounts = tags.reduce((res, cur) => {
+        res[cur] = (res[cur] || 0) + 1;
+        return res;
+      }, {});
+
+      // 找到前三个
+      console.log(
+        Object.entries(tagCounts)
+          .sort((a, b) => b[1] - a[1])
+          .splice(0, 3)
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 需要三个高度：scrollHeight（文档内容实际高度，包括超出视窗的溢出部分）、scrollTop（滚动条滚动距离）、clientHeight（窗口可视范围高度）。
+      // 当 clientHeight + scrollTop >= scrollHeight 时，表示已经抵达内容的底部了，可以加载更多内容。
+
+      // Js 代码
+      window.onscroll = function () {
+        //文档内容实际高度（包括超出视窗的溢出部分）
+        var scrollHeight = Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight
+        );
+        //滚动条滚动距离
+        var scrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop;
+        //窗口可视范围高度
+        var clientHeight =
+          window.innerHeight ||
+          Math.min(
+            document.documentElement.clientHeight,
+            document.body.clientHeight
+          );
+
+        if (clientHeight + scrollTop >= scrollHeight) {
+          console.log("===加载更多内容……===");
+        }
+      };
+    </script>
+  </body>
+</html>

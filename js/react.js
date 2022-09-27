@@ -66,7 +66,27 @@ function isValidElement(object) {
 }
 
 const ReactDOM = {
-  render: (element, container) => {},
+  render: (element, container) => {
+    // 1. 创建不同类型的 DOM 节点
+    const dom =
+      element.type == "TEXT_ELEMENT"
+        ? document.createTextNode("")
+        : document.createElement(element.type);
+
+    // 2.为 DOM 节点添加属性 props (排查 children 属性)
+    const isProperty = (key) => key !== "children";
+    Object.keys(element.props)
+      .filter(isProperty)
+      .forEach((name) => {
+        dom[name] = element.props[name];
+      });
+
+    // 3. 遍历 children，递归调用 render
+    element.props.children.forEach((child) => render(child, dom));
+
+    // 4. 将 DOM 节点添加至 root 根节点
+    container.appendChild(dom);
+  },
 };
 
 const a = (
