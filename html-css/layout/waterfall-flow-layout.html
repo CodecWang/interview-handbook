@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ZH-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 方法一：使用 column */
+        /* .box {
+            column-gap: 10px;
+            column-count: 4;
+        }
+
+        .item {
+            margin-bottom: 10px;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        } */
+
+        /* 方法二：使用 flex */
+        .box {
+            display: flex;
+            flex-flow: column wrap;
+            height: 200px;
+        }
+
+        .item {
+            margin: 10px;
+            width: calc(20% - 20px);
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">
+            <img src="https://via.placeholder.com/150" alt="" srcset="">
+            <span>1</span>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/150x250" alt="" srcset="">
+            <span>2</span>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/150" alt="" srcset="">
+            <span>3</span>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/150x80" alt="" srcset="">
+            <span>4</span>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/150" alt="" srcset="">
+            <span>5</span>
+        </div>
+    </div>
+</body>
+</html>
