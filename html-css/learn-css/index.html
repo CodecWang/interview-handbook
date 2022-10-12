@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.marked {
+            color: red;
+        }
+        
+        .marked p {
+            color: blue;
+        }
+
+        p .marked {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+   <p class="marked">p.marked</p>
+   <p>p.marked</p>
+
+   <div class="marked">
+    <p>.marked p</p>
+    <p>.marked p</p>
+    <p>.marked p</p>
+    <p class="marked">p.marked</p>
+   </div>
+
+   <p>
+    <span class="marked">123</span>
+    <span class="marked">123</span>
+    <span class="marked">123</span>
+    <span class="marked2">123</span>
+   </p>
+
+   <li style="float: left;">item1</li>
+   <li>item2</li>
+   <li>item3</li>
+   <li>item4</li>
+</body>
+</html>
